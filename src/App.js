@@ -14,7 +14,12 @@ const LIST = [
   { abb: 'СВЧ', text: '2', curr: false, nodeRef: React.createRef(null) },
   { abb: 'СВЧ', text: '3', curr: false, nodeRef: React.createRef(null) },
   { abb: 'СВЧ', text: '4', curr: false, nodeRef: React.createRef(null) },
-  { abb: 'СВЧ', text: '5', curr: false, nodeRef: React.createRef(null) },
+  {
+    abb: 'Полиграфия',
+    text: 'это отрасль техники, совокупность технических средств для множественного репродуцирования текстового материала и графических изображений.',
+    curr: false,
+    nodeRef: React.createRef(null),
+  },
 ];
 function App() {
   const [hp, setHp] = React.useState(3);
