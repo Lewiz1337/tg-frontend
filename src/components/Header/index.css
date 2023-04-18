@@ -1,0 +1,36 @@
+.header {
+  height: 80px;
+  width: 100%;
+  background: #a5c3ec;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+}
+.hp {
+  display: flex;
+  gap: 4px;
+}
+.score {
+  font-size: 2em;
+  color: black;
+  font-weight: 700;
+}
+.svgHeart {
+  width: 32px;
+  height: 32px;
+}
+.item-enter {
+  opacity: 0;
+}
+.item-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.item-exit {
+  opacity: 1;
+}
+.item-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}

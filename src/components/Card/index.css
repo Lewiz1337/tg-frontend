@@ -1,0 +1,47 @@
+.card {
+  width: 95%;
+  height: 95%;
+  border-radius: 40px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* background: linear-gradient(90deg, #f598a8, #f6edb2); */
+  background: #a5c3ec;
+  gap: 50px;
+  /* position: absolute; */
+
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+.card__abb {
+  font-size: 2em;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.card__text {
+  font-size: 1.5em;
+  /* text-align: center; */
+  width: 100%;
+  color: white;
+  font-weight: 700;
+}
+.intsruction {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.svg {
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+}
+.text__block {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
