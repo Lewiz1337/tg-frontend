@@ -3,30 +3,53 @@ import React from 'react';
 import { CardList } from './components/CardList/CardList';
 import { Header } from './components/Header/Header';
 import { Menu } from './components/Menu/Menu';
+import { LIST } from './data/constants';
 
-const LIST = [
-  {
-    abb: 'СВЧ',
-    text: 'это электромагнитное излучение, включающее в себя дециметровый, сантиметровый и миллиметровый диапазоны радиоволн, частоты микроволнового излучения изменяются от 300 МГц до 300 ГГц (длина волны от 1 м до 1 мм).',
-    curr: false,
-    nodeRef: React.createRef(null),
-  },
-  { abb: 'СВЧ', text: '2', curr: false, nodeRef: React.createRef(null) },
-  { abb: 'СВЧ', text: '3', curr: false, nodeRef: React.createRef(null) },
-  { abb: 'СВЧ', text: '4', curr: false, nodeRef: React.createRef(null) },
-  {
-    abb: 'Полиграфия',
-    text: 'это отрасль техники, совокупность технических средств для множественного репродуцирования текстового материала и графических изображений.',
-    curr: false,
-    nodeRef: React.createRef(null),
-  },
-];
 function App() {
   const [hp, setHp] = React.useState(3);
   const [currCount, setCurrCount] = React.useState(0);
   const [isMenuOpen, setIsMenuOpen] = React.useState(true);
   const [list, setList] = React.useState([]);
   const [firstStart, setFirstStart] = React.useState(true);
+
+  const setQuizList = () => {
+    const Random = () => {
+      return !!Math.round(Math.random());
+    };
+    const RandomIndex = () => {
+      return Math.floor(Math.random() * LIST.length);
+    };
+    const randomIndexArr = [];
+    const findItem = () => {
+      const item = RandomIndex();
+      if (randomIndexArr.includes(item)) {
+        findItem();
+      } else {
+        randomIndexArr.push(item);
+        return;
+      }
+    };
+    for (let i = 0; i < 5; i++) {
+      findItem();
+    }
+    const listArr = [];
+    randomIndexArr.forEach((item) => {
+      if (Random()) {
+        const { abb, text } = LIST[item];
+        listArr.push({ abb, text, curr: true });
+      } else {
+        while (true) {
+          const randomItem = RandomIndex();
+          if (randomItem !== item) {
+            listArr.push({ abb: LIST[item].abb, text: LIST[randomItem].text, curr: false });
+            break;
+          }
+        }
+      }
+    });
+    setList([...list, ...listArr]);
+  };
+
   const getDamage = () => {
     console.log(hp);
     if (hp === 1) {
@@ -43,15 +66,13 @@ function App() {
     setHp(3);
     setIsMenuOpen(false);
     setFirstStart(false);
-    setList([...LIST]);
-    console.log(LIST);
-    console.log(firstStart);
-    console.log(list);
+    setList([]);
+    setQuizList();
   };
 
   const onAnsw = (success) => {
     if (list.length === 1) {
-      console.log('GAME OVER');
+      setQuizList();
       return;
     }
     if (success) {
@@ -62,7 +83,6 @@ function App() {
     const newList = list;
     newList.pop();
     setList(newList);
-    console.log(list);
   };
 
   return (
