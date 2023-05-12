@@ -8,9 +8,19 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: var(--tg-theme-bg-color);
+  /* font-family: 'Poppins', sans-serif; */
+  background: var(--tg-theme-secondary-bg-color);
 }
-
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+  color: var(--tg-theme-text-color);
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

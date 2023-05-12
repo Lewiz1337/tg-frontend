@@ -8,11 +8,11 @@
   align-items: center;
   justify-content: space-between;
   /* background: linear-gradient(90deg, #f598a8, #f6edb2); */
-  background: #a5c3ec;
+  background: var(--tg-theme-bg-color);
   gap: 50px;
   /* position: absolute; */
 
-  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  /* box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2); */
 }
 .card__abb {
   font-size: 2em;
@@ -25,7 +25,7 @@
   font-size: 1.5em;
   /* text-align: center; */
   width: 100%;
-  color: white;
+  color: var(--tg-theme-hint-color);
   font-weight: 700;
 }
 .intsruction {
